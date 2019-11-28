@@ -1,0 +1,51 @@
+{
+  "name": "@quim/mlog",
+  "version": "1.0.0",
+  "description": "a minimal logging lib for NodeJS",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/index.ts",
+    "dist/index.d.ts"
+  ],
+  "scripts": {
+    "debug": "tsc --sourceMap && node --inspect-brk dist/index.js",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "test": "jest --coverage --runInBand",
+    "test:nocov": "jest --runInBand",
+    "coverage": "open ./coverage/lcov-report/index.html",
+    "lint": "tslint --fix 'src/**/*.ts'",
+    "format": "prettier --write --check 'src/**/*.ts'",
+    "commit": "npm audit && npm test && npm run lint && npm run format",
+    "loc": "git ls-files src | xargs cat | wc -l",
+    "loc:report": "git ls-files src | xargs wc -l",
+    "build": "rm -rf dist && tsc",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "log",
+    "loggin"
+  ],
+  "author": "Joaquim Serafim <joaquim.serafim@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.14",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "jest-extended": "^0.11.2",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run commit",
+      "pre-push": "git status"
+    }
+  }
+}
