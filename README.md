@@ -5,12 +5,10 @@
 ## instalation
 
 ```
-npm i -S joaquimserafim/mlog
+npm i -S @quim/mlog
 ```
 
 ## interface
-
-mlog exposes 2 very simple methods:
 
 `import log from 'mlog'`
 
@@ -21,7 +19,7 @@ mlog exposes 2 very simple methods:
 - info(msg: string | object)
 - error(msg: string | object)
 
-## usage
+## example
 
 ```js
 import mlog from 'mlog';
@@ -62,3 +60,5 @@ logger.info({headers: [{'content-type': 'application/javascript'}], body: {hello
 
 
 ```
+
+#### ISC License (ISC)

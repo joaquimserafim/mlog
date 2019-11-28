@@ -6,6 +6,10 @@ export interface ILog {
   error(msg: string | object): void;
 }
 
+//
+// helpers
+//
+
 const print = (): ILog => {
   const write = (msg: string, stream: any) => stream.write(msg);
   const info = (msg: string) => write(msg, process.stdout);
